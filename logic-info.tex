@@ -122,7 +122,33 @@
         {\forall x P(x) \supset \exists Q(x) \to \exists x ( P(x) \supset Q(x) )}
 \end{displaymath}\vspace{.2ex}
 \item
-  
+誤り
+\begin{displaymath}
+%\setcounter{prfassumptioncounter}{0}
+{\prftree[r]{}
+  {\prftree[r]{}
+    {\prftree[r]{}
+      { \, P(x) \to \, P(x) , \,Q(x)}
+      { \to \, P(x) ,  P(x) \supset Q(x)}
+    }
+    { \to \forall x P(x) ,  P(x) \supset Q(x)}
+  }
+  { \to \forall x P(x) , \exists x ( P(x) \supset Q(x) )}
+}
+\end{displaymath}
+正しい
+\begin{displaymath}
+{\prftree[r]{}
+  {\prftree[r]{}
+    {\prftree[r]{}
+      { \, P(x) \to \, P(x) , \,Q(x)}
+      { \to \, P(x) ,  P(x) \supset Q(x)}
+    }
+    { \to \, P(x) , \exists x ( P(x) \supset Q(x) )}
+    }
+  { \to \forall x P(x) , \exists x ( P(x) \supset Q(x) )}
+}
+\end{displaymath}
 \end{enumerate}
 
 \appendix
