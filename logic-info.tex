@@ -1,0 +1,173 @@
+%定義
+
+%\documentclass[10pt,twocolumn]{jarticle} 
+\documentclass[11pt,dvipdfmx]{jreport}
+
+\usepackage{algorithmic, algorithm}
+\usepackage{graphicx}
+\usepackage{fancybox}
+\usepackage{comment}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{euler}
+%\usepackage{mathrsfs}
+\usepackage{color}
+\usepackage{ulem}
+\usepackage{proof}
+\usepackage[ND,SEQ,IMP]{prftree}
+\usepackage[deluxe]{otf}
+
+
+%\def\imp{\to}
+
+%\pagestyle{empty}
+
+%余白とか
+
+%\setlength{\abovecaptionskip}{-10mm}
+\setlength{\topmargin}{-3.0cm} 
+\setlength{\textheight}{27.0cm} 
+\setlength{\textwidth}{18.5cm}
+\setlength{\oddsidemargin}{-1.3cm} 
+\setlength{\columnsep}{.5cm}
+\newcommand{\noin}{\noindent}
+\catcode`@=\active \def@{\hspace{0.9bp}-\hspace{0.9bp}}
+\newtheorem{dfn}{定義}[section]
+
+%% \makeatletter
+%% \renewcommand{\chapter}{\@startsection{chapter}{1}{\z@}
+%% {1.5\Cvs \@plus.5\Cvs \@minus.2\Cvs}
+%% {.5\Cvs \@plus.3\Cvs}
+%% {\reset@font\Huge\mcfamily}}
+%% \renewcommand{\section}{\@startsection{section}{1}{\z@}
+%% {1.5\Cvs \@plus.5\Cvs \@minus.2\Cvs}
+%% {.5\Cvs \@plus.3\Cvs}
+%% {\reset@font\Large\mcfamily}}
+%% \makeatother
+
+%タイトル
+
+\title{「情報科学における論理\footnote{小野寛晰, 日本評論社, 1994}」問題解答集（途中省略有り）}
+\setcounter{footnote}{0}
+\author{高田　篤司\thanks{神奈川大学理学部情報科学科} \and 原田　崇司\thanks{神奈川大学大学院理学研究科情報科学専攻 田中研究室}}
+\date{\today}
+\西暦
+
+%タイトル作成
+
+\begin{document}
+
+\maketitle
+%\thispagestyle{empty}
+
+% 1．何について話すか(概要) => 2．具体例(図だけで十分) => 3．結論(一番伝えたい事)
+%
+% 結論に向けて，流れを意識して書く．
+%
+% 構文．主語，述語，目的語をはっきり書く．
+%
+% 受動態を使わない．
+%
+% 辞書，参考書，先生に伺うことより，適切な単語，表現で文章を作成する．
+%
+% 内容を削る．必要最小限
+%
+% コンマを列挙以外で2つ以上使う，``~の~の''，の如きは使わない．
+
+% 
+
+\noindent \textbf{問2.14} 
+\par
+\vspace{3mm}
+
+\begin{enumerate}
+  \renewcommand{\labelenumi}{\arabic{enumi}) }
+\item
+\begin{displaymath}
+\setcounter{prfassumptioncounter}{0}
+\prftree[r]{}
+        {\prftree[r]{}
+          {\prftree[r]{}
+            {\prftree[r]{}
+              {\prftree[r]{}
+                {\prftree[r]{}
+                  {\prftree[r]{}
+                    { \, P(x) \to \, P(x) }
+                    { \, P(x) \to \, P(x) , \,Q(x)}
+                  }
+                  { \to \, P(x) ,  P(x) \supset Q(x)}
+                }
+                { \to \forall x P(x) ,  P(x) \supset Q(x)}
+              }
+              { \to \forall x P(x) , \exists x ( P(x) \supset Q(x) )}
+            }
+            {\to \exists x ( P(x) \supset Q(x) ) , \forall x P(x)}
+          }
+          {\prftree[r]{}
+            { \, Q(t) \to \, Q(t) }
+            {\prftree[r]{}
+              {\prftree[r]{}
+                {\prftree[r]{}
+                  { \,P(t) , \, Q(t) \to \, Q(t) )}
+                  { \, Q(t) \to \, P(t) \supset Q(t) )}
+                }
+                { \, Q(t) \to \exists x ( P(x) \supset Q(x) )}
+              }
+              { \exists x Q(t) \to \exists x ( P(x) \supset Q(x) )}  
+            }
+          } 
+          {\forall x P(x) \supset \exists Q(x) \to \exists x ( P(x) \supset Q(x) ) , \exists x ( P(x) \supset Q(x) )}
+        }
+        {\forall x P(x) \supset \exists Q(x) \to \exists x ( P(x) \supset Q(x) )}
+\end{displaymath}\vspace{.2ex}
+\item
+  
+\end{enumerate}
+
+\appendix
+
+\section{証明の書き方}
+\begin{color}{blue}
+\begin{itemize}
+ \item 接続詞などに用いる用語を統一する（教科書を参考にする）．
+ \item 証明を書くときは，一行ずつ書いて改行する．
+ \item サ変動詞を用いない．\sout{$\sim$として，$\sim$とする} $\ \Longrightarrow \ $ $\sim$と仮定する，$\sim$と置く，$\dots$となるような$\sim$をとる．
+ \item 仮定が何で結論は何なのかを明示する．
+ \item 問題文の情報を用いた場合は，問題文のどこを用いたのかを明示する．
+ \item 推論する場合は，用いた根拠と用いた推論規則を明示する．
+\end{itemize}
+\end{color}
+
+
+%% \begin{displaymath}
+%% \setcounter{prfassumptioncounter}{0}
+%% \prftree[r]{$\scriptstyle\supset\mathrm{I}$}
+%%  {\prftree[r]{$\scriptstyle\land\mathrm{I}$}
+  %% {\prftree[r]{$\scriptstyle\forall\mathrm{I}$}
+  %%  {\prftree[r]{$\scriptstyle\land\mathrm{E1}$}
+  %%   {\prftree[r]{$\scriptstyle\forall\mathrm{E}$}
+  %%    {\prfboundedstyle=1\prfboundedassumption<assum:62>{\forall x \ (A \land B)}}
+  %%    {A[z/x] \land B[z/x]}
+  %%   }
+  %%   {A[z/x]}
+  %%  }
+  %%  {\forall x\, A}
+  %% }
+  %% {\prftree[r]{$\scriptstyle\forall\mathrm{I}$}
+  %%  {\prftree[r]{$\scriptstyle\land\mathrm{E2}$}
+  %%   {\prftree[r]{$\scriptstyle\forall\mathrm{E}$}
+  %%    {\prfboundedstyle=1\prfboundedassumption<assum:62>{\forall x \ (A \land B)}}
+  %%    {A[z/x] \land B[z/x]}
+  %%   }
+  %%   {B[z/x]}
+  %%  }
+  %%  {\forall x\, B}
+  %% }
+%%   {\forall x \, A \land \forall x \, B}
+%%  }
+%% {\forall x \ (A \land B) \supset (\forall x \, A \land \forall x \, B)}
+%% \end{displaymath}\vspace{.2ex}
+
+\end{document}
+
