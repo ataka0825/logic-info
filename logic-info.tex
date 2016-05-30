@@ -59,23 +59,81 @@
 \begin{document}
 
 \maketitle
-%\thispagestyle{empty}
 
-% 1．何について話すか(概要) => 2．具体例(図だけで十分) => 3．結論(一番伝えたい事)
-%
-% 結論に向けて，流れを意識して書く．
-%
-% 構文．主語，述語，目的語をはっきり書く．
-%
-% 受動態を使わない．
-%
-% 辞書，参考書，先生に伺うことより，適切な単語，表現で文章を作成する．
-%
-% 内容を削る．必要最小限
-%
-% コンマを列挙以外で2つ以上使う，``~の~の''，の如きは使わない．
+\noindent \textbf{問1.1}の解答
+\par
+1) 正しくない．
+\par
+1) が正しくないことを証明する為には，$A \supset B$および$A$がともに充足可能であることを仮定して，$B$が充足可能であることを示せば良い．
+\par
+よって，初めに，
+\begin{equation}
+ \textrm{$A \supset B$および$A$がともに充足可能である}
+ \label{eq:hypo1_1}
+\end{equation}
+と仮定する．そして，
+\begin{equation}
+ \textrm{論理式$A$を$p$，論理式$B$を$r \land \lnot r$}
+ \label{eq:hypo1_2}
+\end{equation}
+と仮定する．
+\par
+仮定(\ref{eq:hypo1_2})より，論理式$A \supset B$，即ち，$p \supset r \land \lnot r$の真理値表は表\ref{tb:AimpB}となる．
+\begin{table}[!htbp]
+ \centering
+   \caption{$p \supset r \land \lnot r \ \ (A \supset B)$の真理値表}
+   \vspace{3mm}
+   \begin{tabular}{c|c|c|c|c|c}
+    $p$ & $r$ & $\lnot r$ & $p$ & $r \land \lnot r$ & $p \supset r \land \lnot r$ \\ \hline
+    $t$ & $t$ & $f$       & $t$       & $f$                     & $f$ \\ \hline
+    $t$ & $f$ & $t$       & $t$       & $f$                     & $f$ \\ \hline
+    $f$ & $t$ & $f$       & $f$       & $f$                     & $t$ \\ \hline
+    $f$ & $f$ & $f$       & $f$       & $f$                     & $t$ 
+   \end{tabular}
+   \label{tb:AimpB}
+\end{table}
 
-% 
+表\ref{tb:AimpB}より，$A \supset B$は充足可能である．
+\par
+さらに，表\ref{tb:AimpB}より，$A$は充足可能である．
+\par
+しかし，表\ref{tb:AimpB}より，$B$は充足可能でない．
+\par
+以上より，1)は正しくない．
+
+\vspace{5mm}
+2) 正しい．
+\par
+2) が正しいことを証明する為には，$A \supset B$がトートロジで$A$が充足可能であることを仮定して，$B$が充足可能であることを示せば良い．よって，初めに，
+\begin{equation}
+ \textrm{$A \supset B$がトートロジで$A$充足可能である}
+ \label{eq:hypo1_3}
+\end{equation}
+と仮定する．
+\par
+仮定(\ref{eq:hypo1_3})より，$A \supset B$ がトートロジーで$A$が充足可能なので，$v(A) = t, \ v(A \supset B) = t$を満たす付値$v$が存在する．
+\par
+ここで，表\ref{tb:imply}より，$v(A)=t \ \land \ v(A \supset B) = t$ならば，$v(B) = t$である．
+\begin{table}[!htbp]
+ \centering
+   \caption{$A \supset B$の真理値表}
+   \vspace{3mm}
+   \begin{tabular}{c|c|c}
+    $A$ & $B$ & $A \supset B$ \\ \hline
+    $t$ & $t$ & $t$ \\ \hline
+    $t$ & $f$ & $f$ \\ \hline
+    $f$ & $t$ & $t$ \\ \hline
+    $f$ & $f$ & $t$ 
+   \end{tabular}
+   \label{tb:imply}
+\end{table}
+
+
+よって，$A \supset B$がトートロジーで$A$が充足可能なとき，$v(B) = t$となる付値$v$が存在するので，$B$も充足可能である．
+\par
+以上より，2)は正しい．
+
+\newpage
 
 \noindent \textbf{問2.14} 
 \par
