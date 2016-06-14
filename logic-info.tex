@@ -50,7 +50,7 @@
 
 \title{「情報科学における論理\footnote{小野寛晰, 日本評論社, 1994}」問題解答集（途中省略有り）}
 \setcounter{footnote}{0}
-\author{高田　篤司\thanks{神奈川大学理学部情報科学科} \and 原田　崇司\thanks{神奈川大学大学院理学研究科情報科学専攻 田中研究室}}
+\author{高田　篤司\thanks{神奈川大学理学部情報科学科 田中研究室} \and 原田　崇司\thanks{神奈川大学大学院理学研究科理学専攻 田中研究室}}
 \date{\today}
 \西暦
 
@@ -133,7 +133,488 @@
 \par
 以上より，2)は正しい．
 
+\noindent \textbf{問1.2}の解答
+\par
+表\ref{tb:porq}より，$(v(p), v(q), v(r)) = (t,f,f)$若しくは，$(v(p), v(q), v(r)) = (f,t,f)$の組を与えればよい．
+
+\begin{table}[!htbp]
+  \centering
+  \caption{$((p \lor q) \supset r) \lor (p \land q)$の真理値表}
+  \vspace{3mm}
+  \begin{tabular}{c|c|c|c|c|c|c}
+    $p$ & $q$ & $r$ & $p \lor q$ & $(p \lor q) \supset r$ & $p \land q$ & $((p \lor q) \supset r) \lor (p \land q)$ \\ \hline
+    $t$ & $t$ & $t$ & $t$ & $t$ & $t$ & $t$ \\ \hline  %1
+    $t$ & $t$ & $f$ & $t$ & $f$ & $t$ & $t$ \\ \hline  %2
+    $t$ & $f$ & $t$ & $t$ & $t$ & $f$ & $t$ \\ \hline  %3
+    $t$ & $f$ & $f$ & $t$ & $f$ & $f$ & $f$ \\ \hline  %4
+    $f$ & $t$ & $t$ & $t$ & $t$ & $f$ & $t$ \\ \hline  %5
+    $f$ & $t$ & $f$ & $t$ & $f$ & $f$ & $f$ \\ \hline  %6
+    $f$ & $f$ & $t$ & $f$ & $t$ & $f$ & $t$ \\ \hline  %7
+    $f$ & $f$ & $f$ & $f$ & $t$ & $f$ & $t$ \\         %8
+  \end{tabular}
+  \label{tb:porq}
+\end{table}
+
+%% \par
+%% \vspace{5mm}
 \newpage
+
+\noindent \textbf{問1.3}の解答 \par 
+\vspace{2mm}
+論理結合子として$\supset$と$\land$だけを用いる任意の論理式を$L$と表す．
+\par
+$L$に現れる全ての論理式に$t$を割り当てるような付値$v$を与えれば，$\supset$の真理値表\ref{tb:imply}と$\land$の真理値表\ref{tb:and}より，$v(L) = t$となる．
+\par
+よって，$L$を真とするような付値$v$が存在するので，論理結合子として$\supset$と$\land$のみを含むようなすべての論理式は充足可能である．
+\begin{table}[!htbp]
+  \centering
+  \caption{$A \supset B$の真理値表}
+  \vspace{3mm}
+  \begin{tabular}{c|c|c}
+    $A$ & $B$ & $A \land B$ \\ \hline
+    $t$ & $t$ & $t$ \\ \hline
+    $t$ & $f$ & $f$ \\ \hline
+    $f$ & $t$ & $f$ \\ \hline
+    $f$ & $f$ & $f$ 
+  \end{tabular}
+  \label{tb:and}
+\end{table}
+
+\par
+\vspace{5mm}
+
+\noindent \textbf{問1.4}の解答 \par 
+表\ref{tb:equiv}の$A \equiv B$の真理値表より$A$と$B$の真偽が等しいとき，またそのときに限り$A \equiv B$は真となっているので，任意の付値$v$に対して．$v(A \equiv B) = t \  \Longleftrightarrow \ v(A) = v(B)$である．
+
+\begin{table}[!htbp]
+  \centering
+  \caption{$A \equiv B \ (\Longleftrightarrow (A \supset B) \land (B \supset A))$の真理値表}
+  \vspace{3mm}
+  \begin{tabular}{c|c|c|c|c}
+    $A$ & $B$ & $A \supset B$ & $B \supset A$ & $A \equiv B$ \\ \hline
+    $t$ & $t$ & $t$ & $t$ & $t$  \\ \hline
+    $t$ & $f$ & $f$ & $t$ & $f$  \\ \hline
+    $f$ & $t$ & $t$ & $f$ & $f$  \\ \hline
+    $f$ & $f$ & $t$ & $t$ & $t$  \\ 
+  \end{tabular}
+  \label{tb:equiv}
+\end{table}
+
+\par
+\vspace{5mm}
+
+\noindent \textbf{問1.5}の解答 \par 
+\textbf{問1.4}と同様に，$(A \land B) \lor (\lnot A \land \lnot B)$の真理値表を書くことにより示す．
+\par
+$(A \land B) \lor (\lnot A \land \lnot B)$の真理値表\ref{tb:equiv2}より，
+\begin{equation}
+\textrm{任意の付値$v$に対して$A$と$B$の真偽が等しいとき，またそのときに限り$(A \land B) \lor (\lnot A \land \lnot B)$は真となる．}
+ \label{eq:151}
+\end{equation}
+\par
+\textbf{問1.4}より，
+\begin{equation}
+\textrm{任意の付値$v$に対して$A$と$B$の真偽が等しいとき，またそのときに限り$A \equiv B$は，真となる．}
+ \label{eq:152}
+\end{equation}
+\par
+(\ref{eq:151}), (\ref{eq:152})より，任意の付値$v$に対して$A \equiv B$が真のとき，またそのときに限り$(A \land B) \lor (\lnot A \land \lnot B)$は真となる．
+\par
+即ち，任意の付値$v$に対して$v(A \equiv B) = v((A \land B) \lor (\lnot A \land \lnot B))$となる．
+
+\begin{table}[!htbp]
+  \centering
+  \caption{$(A \land B) \lor (\lnot A \land \lnot B)$の真理値表}
+  \vspace{3mm}
+  \begin{tabular}{c|c|c|c|c|c|c}
+    $A$ & $B$ & $A \land B$ & $\lnot A$ & $\lnot B$ & $\lnot A \land \lnot B$ & $(A \land B) \lor (\lnot A \land \lnot B)$
+    \\ \hline
+    $t$ & $t$ & $t$ & $f$ & $f$ & $f$ & $t$ \\ \hline
+    $t$ & $f$ & $f$ & $f$ & $t$ & $f$ & $f$ \\ \hline
+    $f$ & $f$ & $f$ & $t$ & $t$ & $t$ & $f$ \\ \hline
+    $f$ & $f$ & $f$ & $t$ & $f$ & $f$ & $t$ \\ 
+  \end{tabular}
+  \label{tb:equiv2}
+\end{table}
+
+\par
+\vspace{5mm}
+
+\noindent \textbf{問1.6} 1)の解答 \par 
+\begin{enumerate}
+ \item 真理値表\ref{tb:id1}より，$A \land A \equiv A$はトートロジーである． \\
+  真理値表\ref{tb:id2}より，$A \lor A \equiv A$はトートロジーである． 
+\begin{table}[!htbp]
+ \centering
+ \caption{$(A \supset A \land A) \land (A \land A \supset A)$の真理値表}
+ \vspace{3mm}
+ \begin{tabular}{c|c|c|c|c}
+   $A$ & $A \land A$ & $A \supset A \land A$ & $A \land A \supset A$ & $(A \supset A \land A) \land (A \land A \supset A)$ \\ \hline
+   $t$ & $t$ & $t$ & $t$ & $t$ \\ \hline
+   $f$ & $f$ & $t$ & $t$ & $t$ 
+ \end{tabular}
+ \label{tb:id1}
+\end{table}
+
+\begin{table}[!htbp]
+ \centering
+ \caption{$(A \supset A \lor A) \land (A \lor A \supset A)$の真理値表}
+ \vspace{3mm}
+ \begin{tabular}{c|c|c|c|c}
+   $A$ & $A \lor A$ & $A \supset A \lor A$ & $A \lor A \supset A$ & $(A \supset A \lor A) \land (A \lor A \supset A)$ \\ \hline
+   $t$ & $t$ & $t$ & $t$ & $t$ \\ \hline
+   $f$ & $f$ & $t$ & $t$ & $t$ 
+ \end{tabular}
+ \label{tb:id2}
+\end{table}
+ \item 真理値表\ref{tb:associative1}より，任意の付値$v$で$v(\underline{(A \land (B \land C) \supset (A \land B) \land C)} \land \underline{((A \land B) \land C \supset A \land (B \land C))}) = t$なので，$A \land (B \land C) \equiv (A \land B) \land C$はトートロジーである．\\
+  また，真理値表\ref{tb:associative2}より，任意の付値$v$で$v(\underline{(A \lor (B \lor C) \supset (A \lor B) \lor C)} \land \underline{((A \lor B) \lor C \supset A \lor (B \lor C))}) = t$なので，$A \lor (B \lor C) \equiv (A \lor B) \lor C$はトートロジーである．\\
+\begin{table}[!htbp]
+  {\small
+    \caption{$A \land (B \land C)$と$(A \land B) \land C$の真理値表}
+    \vspace{3mm}
+    \begin{tabular}{c|c|c|c|c|c|c|c|c}
+      $A$ & $B$ & $C$ & $B \land C$ & $A \land (B \land C)$ & $A \land B$ & $(A \land B) \land C$ & $A \land (B \land C) \supset (A \land B) \land C$ & $(A \land B) \land C \supset A \land (B \land C)$\\ \hline
+      $t$ & $t$ & $t$ & $t$ & $t$ & $t$ & $t$ & $t$ & $t$ \\ \hline
+      $t$ & $t$ & $f$ & $f$ & $f$ & $t$ & $f$ & $t$ & $t$ \\ \hline
+      $t$ & $f$ & $t$ & $f$ & $f$ & $f$ & $f$ & $t$ & $t$ \\ \hline
+      $t$ & $f$ & $f$ & $f$ & $f$ & $f$ & $f$ & $t$ & $t$ \\ \hline
+      $f$ & $t$ & $t$ & $t$ & $f$ & $f$ & $f$ & $t$ & $t$ \\ \hline
+      $f$ & $t$ & $f$ & $f$ & $f$ & $f$ & $f$ & $t$ & $t$ \\ \hline
+      $f$ & $f$ & $t$ & $f$ & $f$ & $f$ & $f$ & $t$ & $t$ \\ \hline
+      $f$ & $f$ & $f$ & $f$ & $f$ & $f$ & $f$ & $t$ & $t$
+    \end{tabular}
+    \label{tb:associative1}
+  }
+\end{table}
+
+\begin{table}[!htbp]
+  \centering
+      {\small
+        \caption{$A \lor (B \lor C)$と$(A \lor B) \lor C$の真理値表}
+        \vspace{3mm}
+        \begin{tabular}{c|c|c|c|c|c|c|c|c}
+          $A$ & $B$ & $C$ & $B \lor C$ & $A \lor (B \lor C)$ & $A \lor B$ & $(A \lor B) \lor C$ & $A \lor (B \lor C) \supset (A \lor B) \lor C$ & $(A \lor B) \lor C \supset A \lor (B \lor C)$\\ \hline
+          $t$ & $t$ & $t$ & $t$ & $t$ & $t$ & $t$ & $t$ & $t$ \\ \hline
+          $t$ & $t$ & $f$ & $t$ & $t$ & $t$ & $t$ & $t$ & $t$ \\ \hline
+          $t$ & $f$ & $t$ & $t$ & $t$ & $t$ & $t$ & $t$ & $t$ \\ \hline
+          $t$ & $f$ & $f$ & $f$ & $t$ & $t$ & $t$ & $t$ & $t$ \\ \hline
+          $f$ & $t$ & $t$ & $t$ & $t$ & $t$ & $t$ & $t$ & $t$ \\ \hline
+          $f$ & $t$ & $f$ & $t$ & $t$ & $t$ & $t$ & $t$ & $t$ \\ \hline
+          $f$ & $f$ & $t$ & $t$ & $t$ & $f$ & $t$ & $t$ & $t$ \\ \hline
+          $f$ & $f$ & $f$ & $f$ & $f$ & $f$ & $f$ & $t$ & $t$
+        \end{tabular}
+        \label{tb:associative2}
+      }
+\end{table}
+ \item 真理値表\ref{tb:commutative1}より，$A \land B \equiv B \land A$はトートロジーである．\\ 
+  真理値表\ref{tb:commutative2}より，$A \lor B \equiv B \lor A$はトートロジーである．
+\begin{table}[!htbp]
+  \centering
+  \caption{$A \land B \equiv B \land A$の真理値表}
+  \vspace{3mm}
+  \begin{tabular}{c|c|c|c|c|c|c}
+    $A$ & $B$ & $A \land B$ & $B \land A$ & $A \land B \supset B \land A$ & $B \land A \supset A \land B$ & $(A \land B \supset B \land A) \ \land \ (B \land A \supset A \land B)$ \\ \hline
+    $t$ & $t$ & $t$ & $t$ & $t$ & $t$ & $t$ \\ \hline 
+    $t$ & $f$ & $f$ & $f$ & $t$ & $t$ & $t$ \\ \hline
+    $f$ & $t$ & $f$ & $f$ & $t$ & $t$ & $t$ \\ \hline 
+    $f$ & $f$ & $f$ & $f$ & $t$ & $t$ & $t$
+  \end{tabular}
+  \label{tb:commutative1}
+\end{table}
+
+\begin{table}[!htbp]
+  \centering
+  \caption{$A \lor B \equiv B \lor A$の真理値表}
+  \vspace{3mm}
+  \begin{tabular}{c|c|c|c|c|c|c}
+    $A$ & $B$ & $A \lor B$ & $B \lor A$ & $A \lor B \supset B \lor A$ & $B \lor A \supset A \lor B$ & $(A \lor B \supset B \lor A) \ \land \ (B \lor A \supset A \lor B)$ \\ \hline
+    $t$ & $t$ & $t$ & $t$ & $t$ & $t$ & $t$ \\ \hline 
+    $t$ & $f$ & $t$ & $t$ & $t$ & $t$ & $t$ \\ \hline
+    $f$ & $t$ & $t$ & $t$ & $t$ & $t$ & $t$ \\ \hline 
+    $f$ & $f$ & $f$ & $f$ & $t$ & $t$ & $t$
+  \end{tabular}
+  \label{tb:commutative2}
+\end{table}
+
+%4 吸収律
+ \item 真理値表\ref{tb:absorption1}より，$A \land (A \lor B) \equiv A$はトートロジーである．\\ 
+  真理値表\ref{tb:absorption2}より，$A \lor (A \land B) \equiv A$はトートロジーである．
+\begin{table}[!htbp]
+ \centering
+ \caption{$A \land (A \lor B) \equiv A$の真理値表}
+ \vspace{3mm}
+ \begin{tabular}{c|c|c|c|c|c|c}
+   $A$ & $B$ & $A \lor B$ & $A \land (A \lor B)$ & $A \land (A \lor B) \supset A$ & $A \supset A \land (A \lor B)$ & $(A \land (A \lor B) \supset A) \land (A \supset A \land (A \lor B)) $ \\ \hline 
+   $t$ & $t$ & $t$ & $t$ & $t$ & $t$ & $t$ \\ \hline 
+   $t$ & $f$ & $t$ & $t$ & $t$ & $t$ & $t$ \\ \hline
+   $f$ & $t$ & $t$ & $f$ & $t$ & $t$ & $t$ \\ \hline 
+   $f$ & $f$ & $f$ & $f$ & $t$ & $t$ & $t$
+ \end{tabular}
+ \label{tb:absorption1}
+\end{table}
+
+\begin{table}[!htbp]
+  \centering
+  \caption{$A \lor (A \land B) \equiv A$の真理値表}
+  \vspace{3mm}
+  \begin{tabular}{c|c|c|c|c|c|c}
+    $A$ & $B$ & $A \land B$ & $A \lor (A \land B)$ & $A \lor (A \land B) \supset A$ & $A \supset A \lor (A \land B)$ & $(A \land (A \lor B) \supset A) \land (A \supset A \lor (A \land B)) $ \\ \hline 
+    $t$ & $t$ & $t$ & $t$ & $t$ & $t$ & $t$ \\ \hline 
+    $t$ & $f$ & $f$ & $t$ & $t$ & $t$ & $t$ \\ \hline
+    $f$ & $t$ & $f$ & $f$ & $t$ & $t$ & $t$ \\ \hline 
+    $f$ & $f$ & $f$ & $f$ & $t$ & $t$ & $t$
+  \end{tabular}
+  \label{tb:absorption2}
+\end{table}
+ \item
+ \item
+ \item
+ \item
+\end{enumerate}
+
+\par
+\vspace{5mm}
+
+\noindent \textbf{問1.10}の解答
+\par
+それぞれの論理式を例1.10のように論理和標準形および論理積標準形置き換える．
+\begin{enumerate}
+ \item $((p \supset q) \supset p)) \supset p$
+  \begin{align*}
+   ((p \supset q) \supset p)) \supset p \ &\sim \ ((\lnot p \lor q) \supset p)) \supset p \hspace{10mm} {\rm （定理1.3.8より）} \\
+    &\sim \ (\lnot (\lnot p \lor q) \lor p)) \supset p \hspace{10mm} {\rm （定理1.3.8より）} \\
+    &\sim \ \lnot (\lnot (\lnot p \lor q) \lor p) \lor p \hspace{10mm} {\rm （定理1.3.8より）} \\
+    &\sim \ \lnot ((\lnot \lnot p \land \lnot q) \lor p) \lor p \hspace{10mm} {\rm （de \ Morganの法則より）} \\
+    &\sim \ (\lnot(\lnot \lnot p \land \lnot q) \land \lnot p) \lor p \hspace{10mm} {\rm （de \ Morganの法則より）} \\
+    &\sim \ ((\lnot (\lnot \lnot p) \lor \lnot \lnot q) \land \lnot p) \lor p \hspace{10mm} {\rm （de \ Morganの法則より）} \\
+    &\sim \ ((\lnot p \lor q) \land \lnot p) \lor p \hspace{10mm} {\rm （定理1.3.6より）} \\
+    &\sim \ ((\lnot p \land \lnot p) \lor (q \land \lnot p)) \lor p \hspace{10mm} {\rm （分配律より）} \\
+    &\sim \ (\lnot p \lor (q \land \lnot p)) \lor p \hspace{10mm} {\rm （冪等律より）\hspace{30mm} 「論理和標準形」} \\
+    &\sim \ ((\lnot p \lor q) \land (\lnot p \lor \lnot p)) \lor p \hspace{10mm} {\rm （分配律より）} \\
+    &\sim \ ((\lnot p \lor q) \land \lnot p) \lor p \hspace{10mm} {\rm （冪等律より）} \\
+    &\sim \ ((\lnot p \lor q) \lor p) \land (\lnot p \lor p) \hspace{10mm} {\rm （分配律より）} \\
+    &\sim \ ((\lnot p \lor p) \lor q) \land (\lnot p \lor p) \hspace{10mm} {\rm （結合律と交換律より）} \\ 
+    &\sim \ (\top \lor q) \land \top  \hspace{10mm} {\rm （定理1.3.9より）\hspace{37mm} 「論理積標準形？」}
+%    &\sim \ (\top \lor q) \ \ {\rm （定理1.3.11より）} \\
+%    &\sim \ \top \ \ {\rm （定理1.3.10より） \hspace{50mm} 「論理積標準形？」} \\
+  \end{align*}
+ 「論理和標準形」と注を付けている行の3行下の行は，節に同一の論理変数が二つ以上現れているので「論理積標準形」と見做さない．
+ \item $(p \supset (p \land \lnot q)) \land (q \supset (q \land \lnot p)))$
+  \begin{align*}
+   & (p \supset (p \land \lnot q)) \land (q \supset (q \land \lnot p))) \ \sim \ (\lnot p \lor (p \land \lnot q)) \land (q \supset (q \land \lnot p))) \hspace{10mm} {\rm （定理1.3.8より）}  \\
+   & \sim \ (\lnot p \lor (p \land \lnot q)) \land (\lnot q \lor (q \land \lnot p))) \hspace{10mm} {\rm （定理1.3.8より）}  \\
+   & \sim \ ((\lnot p \lor (p \land \lnot q)) \land \lnot q) 
+      \lor ((\lnot p \lor (p \land \lnot q)) \land (q \land \lnot p))) \hspace{10mm} {\rm （分配律より）}  \\
+   & \sim \ ((\lnot p \land \lnot q) \lor ((p \land \lnot q) \land \lnot q)) 
+      \lor ((\lnot p \lor (p \land \lnot q)) \land (q \land \lnot p))) \hspace{10mm} {\rm （分配律より）}  \\
+   & \sim \ ((\lnot p \land \lnot q) \lor (p \land \lnot q)) 
+      \lor ((\lnot p \lor (p \land \lnot q)) \land (q \land \lnot p))) \hspace{10mm} {\rm （冪等律より）}  \\
+   & \sim \ ((\lnot p \land \lnot q) \lor (p \land \lnot q)) \\
+   & \ \ \ \lor ((\lnot p \land (q \land \lnot p)) \lor ((p \land \lnot q) \land (q \land \lnot p))) \hspace{10mm} {\rm （分配律より）}  \\
+   & \sim \ ((\lnot p \land \lnot q) \lor (p \land \lnot q)) \\
+   & \ \ \ \lor ((\lnot p \land q) \lor ((p \land \lnot p) \land (q \land \lnot q))) \hspace{10mm} {\rm （交換律と結合律と冪等律より）}  \\
+   & \sim \ ((\lnot p \land \lnot q) \lor (p \land \lnot q)) \lor ((\lnot p \land q) \lor (\bot \land \bot)) \hspace{10mm} {\rm （定理1.3.9より）}  \\
+   & \sim \ ((\lnot p \land \lnot q) \lor (p \land \lnot q)) \lor (\lnot p \land q) \hspace{10mm} {\rm （定理1.3.11より）\hspace{10mm} 「論理和標準形」}  \\
+   & \sim \ ((\lnot p \lor (p \land \lnot q) \lor (\lnot q \lor (p \land \lnot q)) \lor (\lnot p \land q) \hspace{10mm} {\rm （分配律より）} \\
+   & \sim \ ((\lnot p \lor p) \land (\lnot p \lor \lnot q) \lor (\lnot q \lor (p \land \lnot q)) \lor (\lnot p \land q) \hspace{10mm} {\rm （分配律より）} \\
+   & \sim \ (\top \land (\lnot p \lor \lnot q) \lor (\lnot q \lor (p \land \lnot q)) \lor (\lnot p \land q) \hspace{10mm} {\rm （定理1.3.9より）} \\
+   & \sim \ ((\lnot p \lor \lnot q) \lor (\lnot q \lor (p \land \lnot q)) \lor (\lnot p \land q) \hspace{10mm} {\rm （定理1.3.9より）} \\
+   & \sim \ ((\lnot p \lor \lnot q) \lor ((\lnot q \lor p) \land (\lnot q \lor \lnot q))) \lor (\lnot p \land q) \hspace{10mm} {\rm （分配律より）} \\
+   & \sim \ ((\lnot p \lor \lnot q) \lor ((\lnot q \lor p) \land \lnot q)) \lor (\lnot p \land q) \hspace{10mm} {\rm （冪等律より）} \\
+   & \sim \ ((\lnot p \lor \lnot q) \lor (\lnot q \lor p)) \land ((\lnot p \lor \lnot q) \lor \lnot q)) \lor (\lnot p \land q) \hspace{10mm} {\rm （分配律より）} \\
+   & \sim \ ((\lnot p \lor \lnot q) \lor p) \land (\lnot p \lor \lnot q)) \lor (\lnot p \land q) \hspace{10mm} {\rm （結合律と冪等律より）} \\
+   & \sim \ (\top \land (\lnot p \lor \lnot q)) \lor (\lnot p \land q) \hspace{10mm} {\rm （結合律と交換律と定理1.3.10より）} \\
+   & \sim \ (\lnot p \lor \lnot q) \lor (\lnot p \land q) \hspace{10mm} {\rm （結合律と交換律と定理1.3.11より）} \\
+   & \sim \ ((\lnot p \lor \lnot q) \lor \lnot p) \land ((\lnot p \lor \lnot q) \lor q) \hspace{10mm} {\rm （分配律より）} \\
+   & \sim \ (\lnot p \lor \lnot q) \land (\lnot p \lor (\lnot q \lor q)) \hspace{10mm} {\rm （結合律と交換律と冪等律より）} \\
+   & \sim \ (\lnot p \lor \lnot q) \hspace{10mm} {\rm （定理1.3.9, 1.3.10, 1.3.11より）\hspace{10mm} 「論理積標準形」} \\
+  \end{align*}
+ \item $\lnot (p \supset q) \land ((q \supset s) \supset r)$ \par （省略）
+\end{enumerate}
+
+%% 1.16
+%% 1.17
+%% 1.19
+%% 1.22
+%% 1.23
+%% 1.24
+
+\newpage
+
+\renewcommand{\labelenumi}{(\arabic{enumi}) }
+\renewcommand{\labelenumii}{\arabic{enumii}) }
+
+\noindent \textbf{問2.1}の解答 
+\begin{enumerate}
+ \item
+  \begin{enumerate}
+   \item すべての教師を好きな学生がいる
+   \item すべての怠け者の学生は，怠け者の教師が好きではない
+  \end{enumerate}
+ \item $\neg (\forall x \ (T(x) \supset L(x)))$
+\end{enumerate}
+
+\par
+\vspace{5mm}
+
+\noindent \textbf{問2.2}の解答 
+\begin{enumerate}
+ \item 実数の集合は稠密順序集合である（任意の実数のいくらでも近くに別の実数が存在する）．
+ \item 関係$<$は推移律を満たす．
+\end{enumerate}
+
+\par
+\vspace{5mm}
+
+\noindent \textbf{問2.5}の解答 
+\renewcommand{\labelenumi}{(\arabic{enumi}) }
+\renewcommand{\labelenumii}{\arabic{enumii}) }
+\begin{enumerate}
+ \item 
+  \begin{enumerate}
+   \item 成り立たない．何故ならば$a_{4}Ry$，$a_{5}Ry$となるような$y$は存在しないから．
+   \item 成り立つ．任意の$x$に対して，$y$として$a_{4}$か$a_{5}$をとる（$x := a_{4}$なら$y := a_{4}$，$x := a_{5}$なら$y := a_{5}$とする）．そうすると$yRz$を満たすような$z$は適当に選んだ$y$自身しかないので$yRy \supset yRy$となる．$R$は順序関係なので反射律を満たすのでこの論理式は成り立つ．
+  \end{enumerate}
+ \item 
+　\begin{enumerate}
+   \setcounter{enumii}{2}
+   \item 成り立つ．$y := a_{4}, z := a_{5}$とすれば良い．
+   \item 成り立たない．$x := a_{1}, y := a_{2}, z := a_{3}$とすると，$xRy \land yRz$は成り立つが，$x = y \lor y = z$は成り立たない．つまり，$\forall x \, \forall y \, \forall z \, ((xRy \land yRz) \supset (x=y \lor y = z))$は成り立たない．
+ \end{enumerate}
+\end{enumerate}
+
+\par
+\vspace{5mm}
+
+\noindent \textbf{問2.8}の解答 
+\begin{enumerate}
+ \item 
+  \begin{enumerate}
+   \item $\models \forall x \, A \equiv A$を示す．
+    \par \noindent 
+    恒真性の定義(p.70)より，
+    \par \noindent 
+    任意の構造$\mathfrak{A}$に対し，$\mathfrak{A} \models \forall y_{1} \cdots \forall y_{n} \ (\forall x \, A \equiv A)$となることをいえばよい．ここで論理式$\forall x \ A \equiv A$は自由変数として$y_{1} \cdots y_{n}$を持つものとしておく．
+さらに，$\equiv$の定義(p.10)より
+    \begin{equation*}
+     \mathfrak{A} \models \forall y_{1} \cdots \forall y_{n} \ ((\forall x \, A \supset A) \land (A \supset \forall x \, A))
+    \end{equation*}
+    をいえばよい．これを示すには，任意の構造$\mathfrak{A} = \langle U, I \rangle$および任意の$u_{1}, \dots, u_{n} \in U$に対し
+    \begin{align*}
+     \mathfrak{A} \models ( & (\forall x \ A[ \underline{u_{1}} / y_{1}, \cdots , \underline{u_{n}} / y_{n}] \supset A[\underline{u_{1}}/y_{1}, \cdots , \underline{u_{n}}/y_{n}]) \\
+     & \land \ (A[\underline{u_{1}}/y_{1}, \cdots , \underline{u_{n}}/y_{n}] \supset \forall x \ A[ \underline{u_{1}} / y_{1}, \cdots , \underline{u_{n}} / y_{n}]))
+    \end{align*}
+をいえばよい．
+    \par \noindent
+    ここで，$A \land B$の形の論理式が正しいということの意味(p.64(4))より
+    \begin{equation*}
+     \mathfrak{A} \models (\forall x \ A[ \underline{u_{1}} / y_{1}, \cdots , \underline{u_{n}} / y_{n}] \supset A[\underline{u_{1}}/y_{1}, \cdots , \underline{u_{n}}/y_{n}])
+    \end{equation*}
+    と
+    \begin{equation*}
+     \mathfrak{A} \models A[\underline{u_{1}}/y_{1}, \cdots , \underline{u_{n}}/y_{n}] \supset \forall x \ A[ \underline{u_{1}} / y_{1}, \cdots , \underline{u_{n}} / y_{n}]
+    \end{equation*}
+    が正しいことを示せばよい．以下の証明では，自由変数$x_{1}, \cdots, x_{n}$への$\underline{u_{1}}, \cdots \underline{u_{n}}$への代入がすでに行われているものとし，したがって，$A$が自由変数を一つも含まない場合について述べる．
+    \begin{enumerate}
+    \renewcommand{\labelenumiii}{\alph{enumiii}) }
+     \item 
+      $\mathfrak{A} \models \forall x \, A \supset A$を示す．
+      \par \noindent
+      これを示すには$\mathfrak{A} \models \forall x \, A$を仮定して$\mathfrak{A} \models A$を示せば十分である．
+      \par \noindent
+      構造$\mathfrak{A} = \langle U, I \rangle$に対して，$\mathfrak{A} \models \forall x \, A$と仮定する．したがって，すべての$u \in U$に対して$\mathfrak{A} \models A[\underline{u}/x]$となる．ここで，$A$は$x$を自由変数として含まないので，すべての$u \in U$に対して，$A$は$A[\underline{u}/x]$に等しい．よって$\mathfrak{A} \models A$である．
+     \item 
+      $\mathfrak{A} \models A \supset \forall x \, A$を示す．
+      \par \noindent
+      これを示すには$\mathfrak{A} \models A$を仮定して$\mathfrak{A} \models \forall x \, A$を示せば十分である．
+      \par \noindent
+      構造$\mathfrak{A} = \langle U, I \rangle$に対して，$\mathfrak{A} \models A$と仮定する．したがって，すべての$u \in U$に対して$\mathfrak{A} \models A$となる．ここで，$A$は$x$を自由変数として含まないので，すべての$u \in U$に対して，$A$は$A[\underline{u}/x]$に等しい．これは，$\mathfrak{A} \models \forall x \, A$である．
+    \end{enumerate}
+   a), b)より$\models \forall x \, A \equiv A$は恒真である．
+   \item $\models \exists x \, A \equiv A$を示す．
+    \par \noindent 
+    恒真性の定義(p.70)より，
+    \par \noindent
+    任意の構造$\mathfrak{A}$に対し，$\mathfrak{A} \models \forall y_{1} \cdots \forall y_{n} \ (\exists x \, A \equiv A)$となることをいえばよい．ここで論理式$\exists x \ A \equiv A$は自由変数として$y_{1} \cdots y_{n}$を持つものとしておく．
+さらに，$\equiv$の定義(p.10)より
+    \begin{equation*}
+     \mathfrak{A} \models \forall y_{1} \cdots \forall y_{n} \ ((\exists x \, A \supset A) \land (A \supset \exists x \, A))
+    \end{equation*}
+    をいえばよい．これを示すには，任意の構造$\mathfrak{A} = \langle U, I \rangle$および任意の$u_{1}, \dots, u_{n} \in U$に対し
+    \begin{align*}
+     \mathfrak{A} \models ( & (\exists x \ A[ \underline{u_{1}} / y_{1}, \cdots , \underline{u_{n}} / y_{n}] \supset A[\underline{u_{1}}/y_{1}, \cdots , \underline{u_{n}}/y_{n}]) \\
+     & \land \ (A[\underline{u_{1}}/y_{1}, \cdots , \underline{u_{n}}/y_{n}] \supset \exists x \ A[ \underline{u_{1}} / y_{1}, \cdots , \underline{u_{n}} / y_{n}]))
+    \end{align*}
+をいえばよい．
+    ここで，$A \land B$の形の論理式が正しいということの意味(p.64(4))より
+    \begin{equation*}
+     \mathfrak{A} \models (\exists x \ A[ \underline{u_{1}} / y_{1}, \cdots , \underline{u_{n}} / y_{n}] \supset A[\underline{u_{1}}/y_{1}, \cdots , \underline{u_{n}}/y_{n}])
+    \end{equation*}
+    と
+    \begin{equation*}
+     \mathfrak{A} \models A[\underline{u_{1}}/y_{1}, \cdots , \underline{u_{n}}/y_{n}] \supset \exists x \ A[ \underline{u_{1}} / y_{1}, \cdots , \underline{u_{n}} / y_{n}]
+    \end{equation*}
+    が正しいことを示せばよい．以下の証明では，自由変数$x_{1}, \cdots, x_{n}$への$\underline{u_{1}}, \cdots \underline{u_{n}}$への代入がすでに行われているものとし，したがって，$A$が自由変数を一つも含まない場合について述べる．
+    \begin{enumerate}
+    \renewcommand{\labelenumiii}{\alph{enumiii}) }
+     \item 
+      $\mathfrak{A} \models \exists x \, A \supset A$を示す．
+      \par \noindent
+      これを示すためには$\mathfrak{A} \models \exists x \, A$を仮定して$\mathfrak{A} \models A$を示せば十分である．
+      \par \noindent
+      構造$\mathfrak{A} = \langle U, I \rangle$に対して，$\mathfrak{A} \models \exists x \, A$と仮定する．したがって，ある$u \in U$に対して$\mathfrak{A} \models A[\underline{u}/x]$となる．ここで，$A$は$x$を自由変数として含まないので，$A$は$A[\underline{u}/x]$に等しい．よって$\mathfrak{A} \models A$である．
+     \item 
+      $\mathfrak{A} \models A \supset \exists x \, A$を示す．
+      \par \noindent
+      これを示すには$\mathfrak{A} \models A$を仮定して$\mathfrak{A} \models \exists x \, A$を示せば十分である．
+      \par \noindent
+      構造$\mathfrak{A} = \langle U, I \rangle$に対して，$\mathfrak{A} \models A$と仮定する．したがって，ある$u \in U$に対して$\mathfrak{A} \models A$となる．ここで，$A$は$x$を自由変数として含まないので，ある$u \in U$に対して，$A$は$A[\underline{u}/x]$に等しい．これは，$\mathfrak{A} \models \exists x \, A[x]$である．
+    \end{enumerate}
+   a), b)より$\models \exists x \, A \equiv A$は恒真である．
+  \end{enumerate}
+ \item 以下省略
+\end{enumerate}
+
+\par
+\vspace{5mm}
+
+\noindent \textbf{問2.11}の解答 
+\begin{enumerate}
+\renewcommand{\labelenumi}{\arabic{enumi}) }
+ \item 
+  \begin{equation*}
+  \begin{array}{lll}
+   &\exists x \, R(x,y) \supset \forall y \, (P(y) \land \lnot \, \forall z \, Q(z)) & \\
+   \sim \ & \exists x \, R(x,y) \supset \forall u \, (P(u) \land \lnot \, \forall z \, Q(z)) & \hspace{10mm} \mathrm{定理2.1の2)} \\
+   \sim \ & \exists x \, \forall u \, (R(x,y) \supset (P(u) \land \exists z \, \lnot \, Q(z))) & \hspace{10mm} \mathrm{定理2.1の11)の左} \\
+   \sim \ & \exists x \, \forall u \, (R(x,y) \supset \exists z \, (P(u) \land \lnot \, Q(z))) & \hspace{10mm} \mathrm{定理2.1の4)の右} \\
+   \sim \ & \exists x \, \forall u \, \exists z \, (R(x,y) \supset (P(u) \land \lnot \, Q(z))) & \hspace{10mm} \mathrm{定理2.1の11)の右} 
+  \end{array}
+ \end{equation*}
+ \item
+ \begin{equation*}
+  \begin{array}{lll}
+   & \exists x \, (\forall y \, (P(y) \supset Q(x,z)) \lor \exists z \, (\lnot \, (\exists u \, R(z,u) \land Q(x,z)))) \\
+\sim & \exists x \, (\forall y \, (P(y) \supset Q(x,z)) \lor \exists v \, (\lnot \, (\exists u \, R(v,u) \land Q(x,v)))) & \hspace{10mm} \mathrm{定理2.1の2)の右} \\
+\sim & \exists x \, \exists v \, (\forall y \, (P(y) \supset Q(x,z)) \lor (\lnot \, (\exists u \, R(v,u) \land Q(x,v)))) & \hspace{10mm} \mathrm{定理2.1の3)の右} \\
+\sim & \exists x \, \exists v \, (\forall y \, (P(y) \supset Q(x,z)) \lor (\lnot \, \exists u \, R(v,u) \lor \lnot \, Q(x,v))) & \hspace{10mm} \mathrm{定理1.3の7)の右} \\
+\sim & \exists x \, \exists v \, (\forall y \, (P(y) \supset Q(x,z)) \lor (\forall u \, \lnot \, R(v,u) \lor \lnot \, Q(x,v))) & \hspace{10mm} \mathrm{定理2.1の10)の右} \\
+\sim & \exists x \, \exists v \, (\forall y \, (P(y) \supset Q(x,z)) \lor \forall u \, (\lnot \, R(v,u) \lor \lnot \, Q(x,v))) & \hspace{10mm} \mathrm{定理2.1の4)の左} \\
+\sim & \exists x \, \exists v \, \forall u \, (\forall y \, (P(y) \supset Q(x,z)) \lor (\lnot \, R(v,u) \lor \lnot \, Q(x,v))) & \hspace{10mm} \mathrm{定理2.1の11)の左} \\
+\sim & \exists x \, \exists v \, \forall u \, ((\lnot \, R(v,u) \lor \lnot \, Q(x,v)) \lor \forall y \, (P(y) \supset Q(x,z))) & \hspace{10mm} \mathrm{定理1.3の3)の右} \\
+\sim & \exists x \, \exists v \, \forall u \, \forall y \, ((\lnot \, R(v,u) \lor \lnot \, Q(x,v)) \lor (P(y) \supset Q(x,z))) & \hspace{10mm} \mathrm{定理2.1の4)の左}
+  \end{array}
+ \end{equation*}
+\end{enumerate}
+
+\par
+\vspace{5mm}
+
+\par
+\vspace{5mm}
+
+%% 2.13
 
 \noindent \textbf{問2.14} 
 \par
@@ -208,6 +689,9 @@
 }
 \end{displaymath}
 \end{enumerate}
+
+%% 3.1
+%% 3.2
 
 \appendix
 
