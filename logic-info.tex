@@ -667,8 +667,76 @@ $A \land B$と$C \lor D$の形の論理式を$\supset$と$\lnot$のみを用い�
 }
 \end{displaymath}\vspace{.2ex}
 \item
+\begin{displaymath}
+\setcounter{prfassumptioncounter}{0}
+{\prftree[r]{($\neg$右)}
+  {\prftree[r]{($\neg$左)}
+    {A \to A}
+    {\neg A, A \to}
+  }
+  {A \to \neg \neg A}
+}
+\end{displaymath}\vspace{.2ex}
 \item
+\begin{displaymath}
+\setcounter{prfassumptioncounter}{0}
+{\prftree[r]{($\neg$左)}
+  {\prftree[r]{($\neg$右)}
+    {A \to A}
+    {\to A, \neg A}
+  }
+  {\neg \neg A \to A}
+}
+\end{displaymath}\vspace{.2ex}
 \item
+\begin{displaymath}
+\setcounter{prfassumptioncounter}{0}
+{\prftree[r]{($\supset$右)}
+  {\prftree[r]{($\supset$右)}
+    {\prftree[r]{(ex.左*)}
+      {\prftree[r]{($\supset$左)}
+        {\prftree[r]{($\supset$右)}
+          {\prftree[r]{(weakening左)}
+            {B \to B}
+            {A, B \to B}
+          }
+          {B \to A \supset B}
+        }
+        {\prftree[r]{($\supset$左)}
+          {A \to A}
+          {C \to C}
+          {A \supset C, A \to C}
+        }
+        {(A \supset B) \supset (A \supset C), B, A \to C}
+      }
+      {B, A, (A \supset B) \supset (A \supset C) \to C}
+    }
+    {A, (A \supset B) \supset (A \supset C) \to B \supset C}
+  }
+  {(A \supset B) \supset (A \supset C) \to A \supset (B \supset C)}
+}
+\end{displaymath}\vspace{.2ex}
+\item
+\begin{displaymath}
+\setcounter{prfassumptioncounter}{0}
+{\prftree[r]{($\neg$右)}
+  {\prftree[r]{(cont.左)}
+    {\prftree[r]{(ex.左*)}
+      {\prftree[r]{($\neg$右)}
+        {A \to A}
+        {\prftree[r]{($\neg$右)}
+          {A \to A}
+          {\neg A, A \to}
+        }
+        {A \supset \neg A, A, A \to}
+      }
+      {A, A, A \supset \neg A \to}
+    }
+    {A, A \supset \neg A \to}
+  }
+  {A \supset \neg A \to \neg A}
+}
+\end{displaymath}\vspace{.2ex}
 \end{enumerate}
 
 \vspace{5mm}
