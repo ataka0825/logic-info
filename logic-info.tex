@@ -15,6 +15,7 @@
 \usepackage{color}
 \usepackage{ulem}
 \usepackage{proof}
+\usepackage{multicol}
 \usepackage[ND,SEQ,IMP]{prftree}
 \usepackage[deluxe]{otf}
 
@@ -742,6 +743,42 @@ $A \land B$と$C \lor D$の形の論理式を$\supset$と$\lnot$のみを用い�
 \vspace{5mm}
 \par
 
+\noindent \textbf{問1.17}の解答
+\begin{multicols}{2}
+\begin{displaymath}
+\setcounter{prfassumptioncounter}{0}
+{\prftree[r]{($\supset$左)}
+  {\Gamma \to \Delta, A}
+  {\bot \to}
+  {A \supset \bot, \Gamma \to \Delta}
+}
+\end{displaymath}\vspace{.2ex}
+
+\begin{displaymath}
+\setcounter{prfassumptioncounter}{0}
+{\prftree[r]{($\supset$右)}
+  {\prftree[r]{(weak.右)}
+    {A, \Gamma  \to \Delta}
+    {A, \Gamma  \to \Delta, \bot}
+  }
+  {\Gamma \to \Delta, A \supset \bot}
+}
+\end{displaymath}\vspace{.2ex}
+\end{multicols}
+
+\vspace{5mm}
+\par
+
+\noindent \textbf{問1.18}の解答
+\begin{itemize}
+ \item[(1a)]
+ \item[(1b)]
+ \item[(2a)]
+ \item[(2b)]
+ \item[(3a)]
+ \item[(4a)]
+ \item[(4b)]
+\end{itemize}
 \newpage
 
 \renewcommand{\labelenumi}{(\arabic{enumi}) }
