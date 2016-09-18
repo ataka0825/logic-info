@@ -779,6 +779,58 @@ $A \land B$と$C \lor D$の形の論理式を$\supset$と$\lnot$のみを用い�
  \item[(4a)]
  \item[(4b)]
 \end{itemize}
+
+\vspace{5mm}
+\par
+
+\noindent \textbf{問1.22}の解答
+\begin{enumerate}
+  \setcounter{enumi}{8}
+  \renewcommand{\labelenumi}{\arabic{enumi}) }
+ \item  
+   \begin{equation*}
+     \begin{array}{lll}
+           & a \, \cup \, a = a & \mathrm{\textbf{定義1.4} \ 1)右} \\
+     \iff  & a \leq a & \mathrm{p.48 \ 8)} \\
+     \end{array}
+   \end{equation*}
+ \item $a \leq b \ (a \, \cup \, b = b)$と$b \leq c$を仮定する．$a \leq c$を示す．
+   \begin{equation*}
+     \begin{array}{lll}
+           & b \leq c & \mathrm{仮定} \\
+     \iff  & b \, \cup \, c = c & \mathrm{p.48 \ 8)} \\
+     \iff  & (a \, \cup \, b) \, \cup \, c = c & \mathrm{仮定とp.48 \ 8)} \\
+     \iff  & a \, \cup \, (b \, \cup \, c) = c & \mathrm{\textbf{定義1.4} \ 2)の右)} \\
+     \iff  & a \, \cup \, c = c & \mathrm{仮定とp.48 \ 8)} \\
+     \iff  & a \leq c & \mathrm{p.48 \ 8)}
+     \end{array}
+   \end{equation*}
+ \item $a \, \cup \, b = b$と$b \, \cup \, a = a$を仮定する．$a = b$を示す．
+   \begin{equation*}
+     \begin{array}{lll}
+           & (a \, \cup \, b) = (b \, \cup \, a) & \mathrm{\textbf{定義1.4} \ 3)右} \\
+     \iff  & (b \, \cup \, a) = (a \, \cup \, b) & \mathrm{両辺のそれぞれに\textbf{定義1.4} \ 3)右を適用} \\
+     \iff  & a = b & \mathrm{仮定とp.48 \ 8)}
+     \end{array}
+   \end{equation*}
+ \item これに関しては解答の書き方が解っていない．
+   \begin{equation*}
+     \begin{array}{lll}
+            & a \, \cap \, (a \, \cup \, b) = a & \\
+       \iff & a \, \cap \, b = a & \\
+       \iff & a \leq b &
+     \end{array}
+   \end{equation*}
+ \item
+   \begin{equation*}
+     \begin{array}{|lll|c|lll|} \cline{1-3} \cline{5-7}
+            & a \, \cup \, 0 = a & \mathrm{\textbf{定義1.4} \ 7)左} & \hspace{20mm} &      & a \, \cup \, 1 = 1 & \mathrm{\textbf{定義1.4} \ 7)右} \\
+       \iff & 0 \, \cup \, a = a & \mathrm{\textbf{定義1.4} \ 3)右} &               & \iff & a \leq 1 & \mathrm{p.48 \ 8)} \\
+       \iff & 0 \leq a & \mathrm{p.48 \ 8)} & & & & \\  \cline{1-3} \cline{5-7}
+     \end{array}
+   \end{equation*}
+\end{enumerate}
+
 \newpage
 
 \renewcommand{\labelenumi}{(\arabic{enumi}) }
