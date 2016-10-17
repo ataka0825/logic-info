@@ -690,8 +690,142 @@ $(A \land B) \lor (\lnot A \land \lnot B)$の真理値表\ref{tb:equiv2}より�
 \end{displaymath}
 \end{enumerate}
 
+\par
+\vspace{5mm}
 %% 3.1
+\noindent \textbf{問3.1}の解答 
+\par
+\begin{comment}
+スコーレム標準形を求める.
+\begin{enumerate}
+\renewcommand{\labelenumi}{\arabic{enumi}) }
+ \item 
+  \begin{equation*}
+  \begin{array}{lll}
+   &P(x) \supset (\exists y (\exists u Q(x,u) \supset R(y,z)) \lor S(x,y)) & \hspace{10mm} \mathrm{12)の右}  \\
+   \sim \ & P(x) \supset (\exists y \forall u (Q(x,u) \supset R(y,z)) \lor S(x,y)) & \hspace{10mm} \mathrm{8)} \\
+   \sim \ & P(x) \supset (\exists y \forall u (\lnot Q(x,u) \lor R(y,z)) \lor S(x,y)) & \hspace{10mm} \mathrm{8)} \\
+   \sim \ & \lnot P(x) \lor (\exists y \forall u (Q(x,u) \supset R(y,z)) \lor S(x,y)) & \hspace{10mm} \mathrm{3)の右} \\
+   \sim \ & \lnot P(x) \lor \exists y (\forall u (Q(x,u) \supset R(y,z)) \lor S(x,y)) & \hspace{10mm} \mathrm{4)の左} \\
+   \sim \ &\lnot P(x) \lor \exists y (\forall u (Q(x,u) \supset R(y,z)) \lor S(x,y)) & \hspace{10mm} \mathrm{3)の左} \\
+   \sim \ &\lnot P(x) \lor \exists y \forall u ((Q(x,u) \supset R(y,z)) \lor S(x,y))  & \hspace{10mm} \mathrm{4)の左} \\
+   \sim \ & \exists y (\lnot P(x) \lor \forall u ((Q(x,u) \supset R(y,z)) \lor S(x,y)) & \hspace{10mm} \mathrm{4)の左} \\
+   \sim \ & \exists y \forall u (\lnot P(x) \lor ((Q(x,u) \supset R(y,z)) \lor S(x,y)) & \\
+  \end{array}
+  \end{equation*}
+$\forall u$の左側には，存在記号が一つ現れるので一変数関数記号fを導入して，\\
+  \begin{equation*}
+    \begin{array}{lll}
+      & \exists y (\lnot P(x) \lor ((Q(x,f(y)) \supset R(y,z)) \lor S(x,y)) & 
+    \end{array}
+  \end{equation*}
+\end{enumerate}
+\end{comment}
+
+\vspace{5mm}
+スコーレム標準形を求める.
+\begin{enumerate}
+\renewcommand{\labelenumi}{\arabic{enumi}) }
+ \item 
+  \begin{equation*}
+  \begin{array}{lll}
+   &P(x) \supset (\exists y (\exists u Q(x,u) \supset R(y,z)) \lor S(x,y)) & \hspace{10mm} \mathrm{12)の右}  \\
+   \sim \ & P(x) \supset (\exists y \forall u (Q(x,u) \supset R(y,z)) \lor S(x,y)) & \hspace{10mm} \mathrm{変数の置き換え} \\
+   \sim \ & P(x) \supset (\exists w \forall u ( Q(x,u) \supset R(w,z)) \lor S(x,y)) & \hspace{10mm} \mathrm{3)の右} \\
+   \sim \ & P(x) \supset \exists w (\forall u (Q(x,u) \supset R(w,z)) \lor S(x,y)) & \hspace{10mm} \mathrm{4)の左} \\
+   \sim \ & P(x) \supset \exists w \forall u ((Q(x,u) \supset R(w,z)) \lor S(x,y)) & \hspace{10mm} \mathrm{11)の右} \\
+   \sim \ & \exists w (P(x) \supset \forall u (Q(x,u) \supset R(w,z)) \lor S(x,y)) & \hspace{10mm} \mathrm{11)の左} \\
+   \sim \ & \exists w \forall u (P(x) \supset ((Q(x,u) \supset R(w,z)) \lor S(x,y))  & \hspace{10mm} 
+  \end{array}
+  \end{equation*}
+上記の論理式の冠頭標準形を以下に示す.\\
+  \begin{equation*}
+    \begin{array}{lll}
+      & \forall x \forall y \forall z \exists w \forall u (P(x) \supset ((Q(x,u)) \supset R(w,z)) \lor S(x,y)) & 
+    \end{array}
+  \end{equation*}
+
+$\forall u$の左側には，存在記号が一つ現れるので一変数関数記号fを導入し，自由変数(x,y,z)に定数記号a,b,cを導入すると，\\
+ \begin{equation*}
+    \begin{array}{lll}
+      & \exists w (P(a) \supset ((Q(a,f(w)) \supset R(w,c)) \lor S(a,b)) & 
+    \end{array}
+  \end{equation*}
+\end{enumerate}
+
+
 %% 3.2
+\noindent \textbf{問3.2}の解答 
+\par
+スコーレム標準形を求める.
+\begin{enumerate}
+\renewcommand{\labelenumi}{\arabic{enumi}) }
+ \item 
+  \begin{equation*}
+  \begin{array}{lll}
+   & \exists z ((\forall x P(x) \supset \exists y Q(y) \supset (P(z) \supset Q(z)) & \hspace{10mm} \mathrm{11)の右}  \\
+    \sim \ & \exists z ( \exists y (\forall x P(x) \supset Q(y) \supset (P(z) \supset Q(z)) & \hspace{10mm} \mathrm{12)の右} \\
+    \sim \ & \exists z \forall y ((\forall x P(x) \supset Q(y) \supset (P(z) \supset Q(z)) & \hspace{10mm} \mathrm{12)の右} \\
+    \sim \ & \exists z \forall y (\exists x ( P(x) \supset Q(y) \supset (P(z) \supset Q(z)) & \hspace{10mm} \mathrm{12)の左} \\
+    \sim \ & \exists z \forall y \forall x ( P(x) \supset Q(y) \supset (P(z) \supset Q(z)) &  \\
+  \end{array}
+  \end{equation*}
+$\forall y$の左側には，存在記号が一つ現れるので一変数関数記号fを導入，$\forall x$の左側にも，存在記号は一つ現れるので一変数関数記号gを導入して，\\
+  \begin{equation*}
+    \begin{array}{lll}
+      & \exists z (( P(g(z)) \supset Q(f(z))) \supset (P(z) \supset Q(z)) & 
+    \end{array}
+  \end{equation*}
+
+\item
+Aを$\exists z ((\forall x P(x) \supset \exists y Q(y) \supset (P(z) \supset Q(z)) $とする. \\
+このとき，Aのスコーレム標準形は， $ \exists z (( P(g(z)) \supset Q(f(z))) \supset (P(z) \supset Q(z))$になる.\\
+この論理式は，一つも対象定数を含まないので，新たな対象定数cを付け加えることにする.そうするとエルブラン領域$H_L$は，\\
+\begin{equation*}
+  \begin{array}{lll}
+    & H_L = \{c,f(c),g(c),f(f(c)),f(g(c)),\cdots \} & 
+  \end{array}
+\end{equation*}
+になる.論理式$(P(g(z)) \supset Q(f(z))) \supset (P(z) \supset Q(z))$のzにcを代入すると，
+$(P(g(c)) \supset Q(f(c))) \supset (P(c) \supset Q(c))$が得られる.\\
+この論理式に対して，πをほどこして命題論理の論理式を作ると，
+\begin{equation*}
+  \begin{array}{lll}
+    & (P \supset q) \supset (r \supset s) & 
+  \end{array}
+\end{equation*}
+の形になる.この論理式はトートロジーではない.\\
+次に，$(P(g(z)) \supset Q(f(z))) \supset (P(z) \supset Q(z))$のzにf(c)を代入した論理式にπをほどこすと以下になる.
+\begin{equation*}
+  \begin{array}{lll}
+    & (t \supset u) \supset (v \supset q) & 
+  \end{array}
+\end{equation*}
+得られた論理式上の論理式との論理和は，
+\begin{equation*}
+  \begin{array}{lll}
+    & ((P \supset q) \supset (r \supset s)) \lor ((t \supset u) \supset (v \supset q)) & 
+  \end{array}
+\end{equation*}
+の形になる.この論理式はトートロジーではない.
+次に，$(P(g(z)) \supset Q(f(z))) \supset (P(z) \supset Q(z))$のzにg(c)を代入した論理式にπをほどこすと以下になる.
+\begin{equation*}
+  \begin{array}{lll}
+    & (h \supset i) \supset (p \supset j) & 
+  \end{array}
+\end{equation*}
+得られた論理式上の論理式との論理和は，
+\begin{equation*}
+  \begin{array}{lll}
+    & ((P \supset q) \supset (r \supset s)) \lor ((t \supset u) \supset (v \supset q)) \lor (h \supset i) \supset (p \supset j)& 
+  \end{array}
+\end{equation*}
+の形となる.この論理式はトートロジーになる.
+よって，
+
+\end{enumerate}
+
+
 
 \appendix
 
