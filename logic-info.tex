@@ -1238,6 +1238,59 @@ $(P(g(c)) \supset Q(f(c))) \supset (P(c) \supset Q(c))$が得られる.\\
 
 
 
+%% 3.3
+\noindent \textbf{問3.3}の解答 
+\par
+スコーレム標準形を求める.
+$\forall z$と$\forall w$の左側には，存在記号が二つ現れるので二変数関数記号f,gを導入すると，\\
+\renewcommand{\labelenumi}{\arabic{enumi}) }
+  \begin{equation*}
+  \begin{array}{lll}
+   & \exists x \exists y \forall z \forall w ((p(x) \supset Q(z)) \lor (Q(y)\supset P(w)))\\
+    \sim \ & \exists x \exists y ((p(x) \supset Q(f(x,y))) \lor (Q(y)\supset P(g(x,y))))\\
+  \end{array}
+  \end{equation*}
+となる.
+この論理式は，一つも対象定数を含まないので，新たな対象定数aを付け加えることにする.そうするとエルブラン領域$H_L$は，\\
+\begin{equation*}
+  \begin{array}{lll}
+    & H_L = \{a,f(a,a),g(a,a),\cdots \} & 
+  \end{array}
+\end{equation*}
+になる.論理式$((p(x) \supset Q(f(x,y))) \lor (Q(y)\supset P(g(x,y))))$のx,yにaを代入すると，
+$((p(a) \supset Q(f(a,a))) \lor (Q(a)\supset P(g(a,a))))$が得られる.\\
+この論理式に対して，πをほどこして命題論理の論理式を作ると，
+
+\begin{equation*}
+  \begin{array}{lll}
+    & (P \supset q) \supset (r \supset s) & 
+  \end{array}
+\end{equation*}
+の形になる.この論理式はトートロジーではない.\\
+次に，$((p(x) \supset Q(f(x,y))) \lor (Q(y)\supset P(g(x,y))))$のzにf(a,a)を代入した論理式にπをほどこすと以下になる.
+\begin{equation*}
+  \begin{array}{lll}
+    & (h \supset i) \supset (s \supset j) & 
+  \end{array}
+\end{equation*}
+得られた論理式上の論理式との論理和は，
+\begin{equation*}
+  \begin{array}{lll}
+    & ((r \supset s) \lor (t \supset u)) \lor ((h \supset i) \lor (s \supset j)) & 
+  \end{array}
+\end{equation*}
+の形となる.この論理式はトートロジーになる.
+したがって，
+\begin{equation*}
+  \begin{array}{lll}
+    & \exists x \exists y \forall z \forall w ((p(x) \supset Q(z)) \lor (Q(y)\supset P(w)))\\
+  \end{array}
+\end{equation*}
+は，恒真になる.
+
+
+
+
 \appendix
 
 \section{証明の書き方}
