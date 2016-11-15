@@ -61,6 +61,9 @@
 
 \maketitle
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% start section 2
+\section*{1章}
+
 \noindent \textbf{問1.1}の解答
 \par
 1) 正しくない．
@@ -833,6 +836,9 @@ $A \land B$と$C \lor D$の形の論理式を$\supset$と$\lnot$のみを用い�
 
 \newpage
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% start section 2
+\section*{2章}
+
 \renewcommand{\labelenumi}{(\arabic{enumi}) }
 \renewcommand{\labelenumii}{\arabic{enumii}) }
 
@@ -1095,6 +1101,10 @@ $A \land B$と$C \lor D$の形の論理式を$\supset$と$\lnot$のみを用い�
 \end{displaymath}
 \end{enumerate}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% start section 3
+\section*{3章}
+
 \par
 \vspace{5mm}
 %% 3.1
@@ -1158,10 +1168,12 @@ $\forall u$の左側には，存在記号が一つ現れるので一変数関数
   \end{equation*}
 \end{enumerate}
 
+\vspace{3mm}
 
 %% 3.2
 \noindent \textbf{問3.2}の解答 
 \par
+\vspace{3mm}
 スコーレム標準形を求める.
 \begin{enumerate}
 \renewcommand{\labelenumi}{\arabic{enumi}) }
@@ -1236,11 +1248,12 @@ $(P(g(c)) \supset Q(f(c))) \supset (P(c) \supset Q(c))$が得られる.\\
 
 \end{enumerate}
 
-
+\vspace{3mm}
 
 %% 3.3
 \noindent \textbf{問3.3}の解答 
 \par
+\vspace{3mm}
 スコーレム標準形を求める.
 $\forall z$と$\forall w$の左側には，存在記号が二つ現れるので二変数関数記号f,gを導入すると，\\
 \renewcommand{\labelenumi}{\arabic{enumi}) }
@@ -1288,6 +1301,7 @@ $((p(a) \supset Q(f(a,a))) \lor (Q(a)\supset P(g(a,a))))$が得られる.\\
 \end{equation*}
 は，恒真になる.
 
+<<<<<<< HEAD
 %% 3.4
 \noindent \textbf{問3.4}の解答 
 \par
@@ -1307,11 +1321,200 @@ $((p(a) \supset Q(f(a,a))) \lor (Q(a)\supset P(g(a,a))))$が得られる.\\
  }
 \end{figure}
 空節を導くことが出来たので，論理式$(p \land \lnot s) \lor \lnot p \lor (r \land q) \lor (p \land \lnot q \land s) \lor (\lnot r \land q)$はトートロジーになる.
+=======
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% start section 6
+\section*{6章}
+
+\vspace{3mm}
+\par
+
+\noindent \textbf{問6.1}の解答
+\par
+\renewcommand{\labelenumi}{\arabic{enumi}) }
+\begin{enumerate}
+ \item 
+\begin{displaymath}
+\prftree[r]{$\scriptstyle\supset\mathrm{I}_{\prfref<assum:AB>}$}
+ {\prftree[r]{$\scriptstyle\supset\mathrm{I}_{\prfref<assum:ABC>}$}
+  {\prftree[r]{$\scriptstyle\supset\mathrm{I}_{\prfref<assum:A>}$}
+   {\prfinterspace=1.5em
+    \prftree[r]{$\scriptstyle\supset\mathrm{E}$}
+    {\prftree[r]{$\scriptstyle\supset\mathrm{E}$}
+     {\prfboundedstyle=1\prfboundedassumption<assum:A>{A}}
+     {\prfboundedstyle=1\prfboundedassumption<assum:AB>{A \supset B}}
+     {B}
+    }
+    {\prftree[r]{$\scriptstyle\supset\mathrm{E}$}
+     {\prfboundedstyle=1\prfboundedassumption<assum:A>{A}}
+     {\prfboundedstyle=1\prfboundedassumption<assum:ABC>{A \supset (B \supset C)}}
+     {B \supset C}
+    }
+    {C}
+   }
+   {A \supset C}
+  }
+  {(A \supset (B \supset C)) \supset (A \supset C)}
+ }
+{(A \supset B) \supset ((A \supset (B \supset C)) \supset (A \supset C))}
+\end{displaymath}\vspace{.2ex}
+ \item 
+   \begin{displaymath}
+     \setcounter{prfassumptioncounter}{0}
+     \prftree[r]{$\scriptstyle\supset\mathrm{I}_{\prfref<assum:AB0>}$}
+             {\prftree[r]{$\scriptstyle\neg\mathrm{I}_{\prfref<assum:ABbot0>}$}
+               {\prfinterspace=1.5em
+                 \prftree[r]{$\scriptstyle\neg\mathrm{E}$}
+                         {\prftree[r]{$\scriptstyle\land\mathrm{E2}$}
+                           {\prfboundedstyle=1\prfboundedassumption<assum:AB0>{A \land B}}
+                           {B}
+                         }
+                         {\prftree[r]{$\scriptstyle\supset\mathrm{E}$}
+                           {\prftree[r]{$\scriptstyle\land\mathrm{E1}$}
+                             {\prfboundedstyle=1\prfboundedassumption<assum:AB0>{A \land B}}      
+                             {A}
+                           }
+                           {\prfboundedstyle=1\prfboundedassumption<assum:ABbot0>{A \supset \neg B}}
+                           {\neg B}
+                         }
+                         {\bot}
+               }
+               {\neg (A \supset \neg B)}
+             }
+             {(A \land B) \supset \neg (A \supset \neg B)}
+   \end{displaymath}\vspace{.2ex}
+ \item
+   \begin{displaymath}
+     \setcounter{prfassumptioncounter}{0}
+     \prftree[r]{$\scriptstyle\supset\mathrm{I}_{\prfref<assum:A3>}$}
+             {\prftree[r]{$\scriptstyle\neg\mathrm{I}_{\prfref<assum:ABbot3>}$}
+               {\prfinterspace=1.5em
+                 \prftree[r]{$\scriptstyle\neg\mathrm{E}$}
+                         {\prfboundedstyle=1\prfboundedassumption<assum:A3>{A}}      
+                         {\prftree[r]{$\scriptstyle\land\mathrm{E1}$}
+                           {\prfboundedstyle=1\prfboundedassumption<assum:ABbot3>{\neg A \land B}}      
+                           {\neg A}
+                         }
+                         {\bot}
+               }
+               {\neg (\neg A \land B)}
+             }
+             {A \supset (\neg (\neg A \land B))}
+   \end{displaymath}\vspace{.2ex}
+ \item $(A \lor B) \supset \neg(\neg A \land \neg B)$の$\neg$を展開した$(A \lor B) \supset (((A \supset \bot) \land (B \supset \bot)) \supset \bot)$の証明図を作る．
+\begin{displaymath}
+\setcounter{prfassumptioncounter}{0}
+\prftree[r]{$\scriptstyle\supset\mathrm{I}_{\prfref<assum:AB4>}$}
+ {\prftree[r]{$\scriptstyle\supset\mathrm{I}_{\prfref<assum:ABbot4>}$}
+   {\prfinterspace=1.5em
+    \prftree[r]{$\scriptstyle\lor\mathrm{E}_{\prfref<assum:AorB4>}$}
+     {\prfboundedstyle=1\prfboundedassumption<assum:AB4>{A \lor B}}
+     {\prftree[r]{$\scriptstyle\supset\mathrm{E}$}
+      {\prfboundedstyle=1\prfboundedassumption<assum:AorB4>{B}}
+      {\prftree[r]{$\scriptstyle\land\mathrm{E2}$}
+       {\prfboundedstyle=1\prfboundedassumption<assum:ABbot4>{(A \supset \bot) \land (B \supset \bot)}}
+       {B \supset \bot}
+      }
+      {\bot}
+     }
+     {\prftree[r]{$\scriptstyle\supset\mathrm{E}$}
+      {\prfboundedstyle=1\prfboundedassumption<assum:AorB4>{A}}
+      {\prftree[r]{$\scriptstyle\land\mathrm{E1}$}
+       {\prfboundedstyle=1\prfboundedassumption<assum:ABbot4>{(A \supset \bot) \land (B \supset \bot)}}
+       {A \supset \bot}
+      }
+      {\bot}
+     }
+    {\bot}
+   }
+  {((A \supset \bot) \land (B \supset \bot)) \supset \bot}
+ }
+{(A \lor B) \supset (((A \supset \bot) \land (B \supset \bot)) \supset \bot)}
+\end{displaymath}\vspace{.2ex}
+ \item
+\begin{displaymath}
+\setcounter{prfassumptioncounter}{0}
+\prftree[r]{$\scriptstyle\supset\mathrm{I}_{\prfref<assum:ABAC5>}$}
+ {\prftree[r]{$\scriptstyle\lor\mathrm{E}_{\prfref<assum:ABorC5>}$}
+  {\prftree[r]{$\scriptstyle\land\mathrm{E1}$}
+   {\prfboundedstyle=1\prfboundedassumption<assum:ABAC5>{(A \lor B) \land (A \lor C)}}
+   {A \lor B}
+  }
+  {\prftree[r]{$\scriptstyle\lor\mathrm{I1}$}
+   {\prfboundedstyle=1\prfboundedassumption<assum:ABorC5>{A}}
+   {A \lor (B \land C)}
+  }
+  {\prftree[r]{$\scriptstyle\lor\mathrm{E}_{\prfref<assum:AorC5>}$}
+   {\prftree[r]{$\scriptstyle\land\mathrm{E2}$}
+   {\prfboundedstyle=1\prfboundedassumption<assum:ABAC5>{(A \lor B) \land (A \lor C)}}
+    {A \lor C}
+   }
+   {\prftree[r]{$\scriptstyle\lor\mathrm{I1}$}
+    {\prfboundedstyle=1\prfboundedassumption<assum:AorC5>{A}}
+    {A \lor (B \land C)}
+   }
+   {\prftree[r]{$\scriptstyle\lor\mathrm{I2}$}
+    {\prftree[r]{$\scriptstyle\land\mathrm{I}$}
+     {\prfboundedstyle=1\prfboundedassumption<assum:ABorC5>{B}}
+     {\prfboundedstyle=1\prfboundedassumption<assum:AorC5>{C}}
+     {B \land C}
+    }
+    {A \lor (B \land C)}
+   }
+   {A \lor (B \land C)}
+  }
+  {A \lor (B \land C)}
+ }
+{((A \lor B) \land (A \lor C)) \supset (A \lor (B \land C))}
+\end{displaymath}\vspace{.2ex}
+ \item
+\begin{displaymath}
+\setcounter{prfassumptioncounter}{0}
+\prftree[r]{$\scriptstyle\supset\mathrm{I}_{\prfref<assum:ABBC6>}$}
+ {\prftree[r]{$\scriptstyle\lor\mathrm{E}_{\prfref<assum:AorB6>}$}
+  {\prftree[r]{$\scriptstyle\land\mathrm{E1}$}
+   {\prfboundedstyle=1\prfboundedassumption<assum:ABBC6>{(A \lor B) \land (B \supset C)}}
+   {A \lor B}
+  }
+  {\prftree[r]{$\scriptstyle\lor\mathrm{I1}$}
+   {\prfboundedstyle=1\prfboundedassumption<assum:AorB6>{A}}
+   {A \lor C}
+  }
+  {\prftree[r]{$\scriptstyle\lor\mathrm{I2}$}
+   {\prftree[r]{$\scriptstyle\supset\mathrm{E}$}
+    {\prfboundedstyle=1\prfboundedassumption<assum:AorB6>{B}}
+    {\prftree[r]{$\scriptstyle\land\mathrm{E2}$}
+     {\prfboundedstyle=1\prfboundedassumption<assum:ABBC6>{(A \lor B) \land (B \supset C)}}
+     {B \supset C}
+    }
+    {C}
+   }
+   {A \lor C}
+  }
+  {A \lor C}
+ }
+{((A \lor B) \land (B \supset C)) \supset (A \lor C)}
+\end{displaymath}\vspace{.2ex}
+\end{enumerate}
+
+
+\vspace{5mm}
+\par
+
+\noindent \textbf{問6.2}の解答
+\par
+
+>>>>>>> 732fcb5b86c7f0b90515147ae303952fa4731023
+
+\vspace{5mm}
+\par
+
+
+\newpage
 
 \appendix
 
-\section{証明の書き方}
+\section*{証明の書き方}
 \begin{color}{blue}
 \begin{itemize}
  \item 接続詞などに用いる用語を統一する（教科書を参考にする）．
