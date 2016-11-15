@@ -1288,7 +1288,25 @@ $((p(a) \supset Q(f(a,a))) \lor (Q(a)\supset P(g(a,a))))$が得られる.\\
 \end{equation*}
 は，恒真になる.
 
-
+%% 3.4
+\noindent \textbf{問3.4}の解答 
+\par
+節集合Sは次の節からなる.\par
+\begin{equation*}
+  \begin{array}{lll}
+      \{p \land \lnot s\},\{ \lnot p\},\{r \land q\},
+      \{p \land \lnot q \land s\},\{\lnot r \land q\}
+  \end{array}
+\end{equation*}
+このSに対して導出図を作る.\par
+\begin{figure}[!htbp]
+ \centering{
+  \scalebox{0.7}{\input{./3_4.tps}}
+  \caption{導出図}
+  \label{fig:f3_4}
+ }
+\end{figure}
+空節を導くことが出来たので，論理式$(p \land \lnot s) \lor \lnot p \lor (r \land q) \lor (p \land \lnot q \land s) \lor (\lnot r \land q)$はトートロジーになる.
 
 
 \appendix
