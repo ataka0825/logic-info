@@ -1301,7 +1301,7 @@ $((p(a) \supset Q(f(a,a))) \lor (Q(a)\supset P(g(a,a))))$が得られる.\\
 \end{equation*}
 は，恒真になる.
 
-<<<<<<< HEAD
+
 %% 3.4
 \noindent \textbf{問3.4}の解答 
 \par
@@ -1321,7 +1321,58 @@ $((p(a) \supset Q(f(a,a))) \lor (Q(a)\supset P(g(a,a))))$が得られる.\\
  }
 \end{figure}
 空節を導くことが出来たので，論理式$(p \land \lnot s) \lor \lnot p \lor (r \land q) \lor (p \land \lnot q \land s) \lor (\lnot r \land q)$はトートロジーになる.
-=======
+
+
+\newpage
+%% 3.5
+\noindent \textbf{問3.5}の解答 
+\par
+$E \theta =P(f(u),g(u,v),v,u)$\par
+$(E \theta)u=P(f(a),g(a,f(b)),f(b))$\par
+$\theta \circ u= [f(u)/x,g(u,v)/y,v/z,a/u,f(b)/v ]$
+
+%% 3.6
+\noindent \textbf{問3.6}の解答 
+\par
+$\theta \circ u=[s_1/x_1,\cdots,s_m/x_m,t_1/y_1,\cdots,t_n/y_n]$\par
+$(\theta \circ u) \circ \sigma =[s_1/x_1,\cdots,s_m/x_m,t_1/y_1,\cdots,t_n/y_n,u_1/z_1,\cdots,u_k/z_k]$\par
+$(u \circ \sigma)=[t_1/y_1,\cdots,t_n/y_n,u_1/z_1,\cdots,u_k/z_k]$\par
+$\theta \circ (u \circ \sigma) =[s_1/x_1,\cdots,s_m/x_m,t_1/y_1,\cdots,t_n/y_n,u_1/z_1,\cdots,u_k/z_k]$\par
+よって，$(\theta \circ u) \circ \sigma = \theta \circ (u \circ \sigma)$(2)が成り立つ.
+
+%% 3.7
+\noindent \textbf{問3.7}の解答\par
+LKの証明図を以下に示す.
+\begin{displaymath}
+  \setcounter{prfassumptioncounter}{0}
+            {\prftree[r]{($\forall$左[c/z])}
+              {\prftree[r]{($\forall$左[c/u])}
+                {\prftree[r]{($\exists$右[c/x])}
+                  {\prftree[r]{($\exists$右[f(c)/y])}
+                    {\prftree[r]{($\land$右[z/g(c)])}
+                      {\prftree[r]{}
+                      {P(c,f(c)) \to P(c,f(c))}
+                      {P(c,f(c)) \to P(c,f(c))}
+                      }
+                      {\prftree[r]{}
+                      {P(g(c),f(c)) \to P(g(c),f(c))}
+                      {P(g(c),f(c)) \to P(g(c),f(c))}
+                      }
+                      {P(c,f(c)) \to P(c,f(c)) \land P(g(c),u)}
+                    }
+                    {P(c,f(c)) \to P(c,f(c)) \land \exists y P(g(c),y)}
+                  }  
+                  {P(c,f(c)) \to P(c,f(c)) \land \exists x \exists y P(g(x),y)}
+                }
+                {\forall u P(c,f(u)) \to P(c,f(c)) \land \exists x \exists y P(g(x),y)}
+              }
+              {\forall z \forall u P(z,f(u)) \to P(c,f(c)) \land \exists x \exists y P(g(x),y)}
+            } 
+\end{displaymath}\vspace{.2ex}
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% start section 6
 \section*{6章}
